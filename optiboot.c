@@ -490,7 +490,7 @@ void appStart(uint8_t rstFlags) __attribute__ ((naked));
 #define SPIFLASH_STATUSREAD       0x05        // read status register
 #define SPIFLASH_WRITEENABLE      0x06        // write enable
 #define SPIFLASH_ARRAYREADLOWFREQ 0x03        // read array (low frequency)
-#define SPIFLASH_BLOCKERASE_32K   0x52        // erase one 32K block of flash memory
+#define SPIFLASH_BLOCKERASE_32K   0xD8        // erase one 32K block of flash memory
 #define SPIFLASH_BLOCKERASE_64K   0xD8        // erase one 32K block of flash memory
 #define SPIFLASH_JEDECID          0x9F        // read JEDEC ID
 //#define DEBUG_ON                            // uncomment to enable Serial debugging 
@@ -541,7 +541,8 @@ void CheckFlashImage() {
 
   //SPI INIT
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega88) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
-  DDRB |= _BV(FLASHSS) | _BV(SS) | _BV(PB3) | _BV(PB5); //OUTPUTS for FLASH_SS and SS, MOSI, SCK
+  DDRB |= _BV(SS) | _BV(PB3) | _BV(PB5); //OUTPUTS for FLASH_SS and SS, MOSI, SCK
+  DDRD |= _BV(FLASHSS); //OUTPUT for FLASH_SS
   FLASH_UNSELECT; //unselect FLASH chip
   PORTB |= _BV(SS); //set SS HIGH
 #elif defined (__AVR_ATmega1284P__) || defined (__AVR_ATmega644P__)

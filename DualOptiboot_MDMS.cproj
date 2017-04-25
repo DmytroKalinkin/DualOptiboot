@@ -95,10 +95,10 @@
       </AvrGcc>
     </ToolchainSettings>
     <UsesExternalMakeFile>True</UsesExternalMakeFile>
-    <OutputDirectory>E:\Dmytro\GitHub\DualOptiboot</OutputDirectory>
+    <OutputDirectory>D:\GitHub\DualOptiboot</OutputDirectory>
     <BuildTarget>atmega328</BuildTarget>
     <CleanTarget>clean</CleanTarget>
-    <ExternalMakeFilePath>E:\Dmytro\GitHub\DualOptiboot\Makefile</ExternalMakeFilePath>
+    <ExternalMakeFilePath>D:\GitHub\DualOptiboot\Makefile</ExternalMakeFilePath>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
